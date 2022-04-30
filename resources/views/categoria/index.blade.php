@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-Categoria
+Movimiento
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@ Categoria
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <span id="card_title">
-                            {{ __('Categoria') }}
+                            {{ __('Movimiento') }}
                         </span>
                         
                         <div class="float-right">
@@ -32,25 +32,22 @@ Categoria
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
-                            <thead class="thead">
+                            <thead class="thead" align="center">
                                 <tr>
-                                    <th>SKU</th>
-                                    
-                                    <th>Nombre</th>
-                                    
-                                    <th></th>
+                                    <th>SKU</th>                                    
+                                    <th>Tipo de movimiento</th>                                   
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody align="center">
                                 @foreach ($categorias as $categoria)
                                 <tr>
                                     <td>{{ ++$i }}</td>
                                     
-                                    <td>{{ $categoria->nombre }}</td>
-                                    
+                                    <td>{{ $categoria->nombre }}</td>                                   
                                     <td>
                                         <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+
                                             <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                             @csrf
                                             @method('DELETE')

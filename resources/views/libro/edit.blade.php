@@ -20,7 +20,7 @@ Update Libro
                         {{ method_field('PATCH') }}
                         @csrf
                         
-                        @include('libro.form')
+                        @include('libro.formEdit')
                         
                     </form>
                 </div>

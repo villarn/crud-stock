@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DB;
 
 /**
  * Class Libro
@@ -20,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Libro extends Model
 {
-    
+  
     static $rules = [
 		'categoria_id' => 'required',
 		'nombre' => 'required',
@@ -34,6 +36,7 @@ class Libro extends Model
      *
      * @var array
      */
+    use HasFactory;
     protected $fillable = ['categoria_id','nombre', 'stock'];
 
 
@@ -44,6 +47,29 @@ class Libro extends Model
     {
         return $this->hasOne('App\Models\Categoria', 'id', 'categoria_id');
     }
-    
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function movimientosStock()
+    {
+        return $this->hasMany('App\Models\Movement', 'id_libro', 'id');
+    }
+
+    public function calcularStockActual()
+    { 
+        $sqlI = "SELECT SUM(ingreso) as total FROM movements where id_libro = $this->id";
+        $sqlE = "SELECT SUM(egreso)  as total FROM movements where id_libro = $this->id";
+        
+        $dataI = DB::select(DB::raw($sqlI)); 
+        $dataE = DB::select(DB::raw($sqlE)); 
+
+        $stockActual = ($dataI[0]->total ?? 0 ) - ($dataE[0]->total ?? 0);
+
+        return json_encode($stockActual);
+
+    }
+   
+
 
 }

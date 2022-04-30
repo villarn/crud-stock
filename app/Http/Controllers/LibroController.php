@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Libro;
 use App\Models\Categoria;
+use App\Models\Movement;
 use Illuminate\Http\Request;
 
 /**
@@ -46,9 +47,17 @@ class LibroController extends Controller
     public function store(Request $request)
     {
         request()->validate(Libro::$rules);
-        
+        $stockMovimiento = $request->get('stock');
+
         $libro = Libro::create($request->all());
-        
+        $movimiento = Movement::create(
+            [
+                "id_libro" => $libro->id,
+                "ingreso" => $stockMovimiento,
+                "type" => "Creación del producto"
+            ]
+            );
+
         return redirect()->route('libros.index')
         ->with('success', 'Libro created successfully.');
     }
@@ -88,8 +97,9 @@ class LibroController extends Controller
     */
     public function update(Request $request, Libro $libro)
     {
-        request()->validate(Libro::$rules);
-        
+        request()->validate([
+            'categoria_id' => 'required',
+            'nombre' => 'required']);
         $libro->update($request->all());
         
         return redirect()->route('libros.index')

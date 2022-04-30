@@ -29,10 +29,10 @@
                         @if (auth::check())
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Libros') }}</a>
+                                <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Productos') }}</a>
                             </li>  
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('Categorias') }}</a>
+                                <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('Movimientos') }}</a>
                             </li>                                              
                         </ul>
                         @endif
