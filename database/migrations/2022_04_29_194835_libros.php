@@ -19,11 +19,12 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('categoria_id')->unsigned();
             $table->string('nombre');
+            $table->bigInteger('stock')->unsigned();
             $table->timestamps();
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete("cascade");
-
         });
     }
+
     /**
      * Reverse the migrations.
      *

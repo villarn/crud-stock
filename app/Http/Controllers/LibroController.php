@@ -104,7 +104,6 @@ class LibroController extends Controller
     public function destroy($id)
     {
         $libro = Libro::find($id)->delete();
-        
         return redirect()->route('libros.index')
         ->with('success', 'Libro deleted successfully');
     }

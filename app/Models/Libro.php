@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $categoria_id
  * @property $nombre
+ * @property $stock
  * @property $created_at
  * @property $updated_at
  *

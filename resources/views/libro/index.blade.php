@@ -34,6 +34,8 @@ Libro
                                     <th>Categoria</th>
                                     <th>Nombre</th>
                                     <th>Stock</th>
+                                    <th>Fecha de ingreso</th>
+                                    <th>Fecha de modificación</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -43,7 +45,9 @@ Libro
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $libro->categoria->nombre }}</td>
                                     <td>{{ $libro->nombre }}</td>
-                                    <td>{{ '1' }}</td>
+                                    <td>{{ $libro->stock }}</td>
+                                    <td>{{ $libro->created_at }}</td>
+                                    <td>{{ $libro->updated_at }}</td>
                                     <td>
                                         <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
                                             <a class="btn btn-sm btn-primary " href="{{ route('libros.show',$libro->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
