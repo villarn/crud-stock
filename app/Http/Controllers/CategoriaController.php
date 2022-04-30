@@ -48,7 +48,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::create($request->all());
         
         return redirect()->route('categorias.index')
-        ->with('success', 'Categoria created successfully.');
+        ->with('success', 'Categoría creada con éxito.');
     }
     
     /**
@@ -91,7 +91,7 @@ class CategoriaController extends Controller
         $categoria->update($request->all());
         
         return redirect()->route('categorias.index')
-        ->with('success', 'Categoria updated successfully');
+        ->with('success', 'Categoría actualizada con éxito');
     }
     
     /**
@@ -104,6 +104,6 @@ class CategoriaController extends Controller
         $categoria = Categoria::find($id)->delete();
         
         return redirect()->route('categorias.index')
-        ->with('success', 'Categoria deleted successfully');
+        ->with('success', 'Categoría eliminada con éxito');
     }
 }

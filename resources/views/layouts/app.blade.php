@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -29,10 +29,10 @@
                         @if (auth::check())
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Productos') }}</a>
+                                <a class="nav-link" href="{{ route('libros.index') }}">{{ __('Libros') }}</a>
                             </li>  
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('Movimientos') }}</a>
+                                <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('Categorías') }}</a>
                             </li>                                              
                         </ul>
                         @endif

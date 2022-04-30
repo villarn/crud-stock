@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('template_title')
-Create Producto
+Crear Libro
 @endsection
 @section('content')
 <section class="content container-fluid">
@@ -9,7 +9,7 @@ Create Producto
             @includeif('partials.errors')           
             <div class="card card-default">
                 <div class="card-header">
-                    <span class="card-title">Create Producto</span>
+                    <span class="card-title">Crear un nuevo Libro</span>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('libros.store') }}"  role="form" enctype="multipart/form-data">
