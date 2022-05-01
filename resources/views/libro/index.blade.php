@@ -48,16 +48,14 @@
                                     @foreach ($libros as $libro)
                                     <tr>
                                         <td>{{ $libro->id}}</td>
-                                        
                                         <td>{{ $libro->nombre }}</td>
                                         <td>{{ $libro->calcularStockActual() }}</td>
                                         <td>{{ $libro->created_at }}</td>
                                         <td>{{ $libro->updated_at }}</td>
                                         <td>
                                             <form action="{{ route('libros.destroy',$libro->id) }}" method="POST">
-                                                
                                                 <a class="btn btn-sm btn-secondary" href="{{ route('libros.edit',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Ver</a>
-                                                <a class="btn btn-sm btn-dark" href="{{ route('nuevoMovimiento',$libro->id) }}"><i class="fa fa-fw fa-edit"></i> Movimientos</a>
+                                          <!--       <a class="btn btn-sm btn-dark" href="  /*route('nuevoMovimiento',$libro->id)*/ }}"><i class="fa fa-fw fa-edit"></i> Movimientos</a> -->
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>

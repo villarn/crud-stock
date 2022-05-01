@@ -28,15 +28,16 @@ class MovementController extends Controller
     {
         $tipoMov = $request->get('type');
         /*
-        1- Venta - egreso
-        2-Compra -ing
-        3- Cancelación -ing
+        1- Venta - Es un egreso
+        2- Compra -Es un ingreso
+        3- Cancelación -Es un ingreso
         */ 
         
         $cantidad = $request->get('cantidad');
         
         $movimiento = Movement::create(
             [
+                
                 "id_libro" => $id,
                 "ingreso" => $tipoMov == 1? null: $cantidad,
                 "egreso" => $tipoMov == 1?  $cantidad : null,

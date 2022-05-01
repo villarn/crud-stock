@@ -85,7 +85,7 @@ class LibroController extends Controller
     {
         $libro = Libro::find($id);
         $categoria= Categoria::pluck('nombre','id');
-        return view('libro.edit', compact('libro', 'categoria'));
+        return view('libro.edit', compact('libro', 'categoria', 'id'));
     }
     
     /**

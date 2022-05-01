@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log(window.location.hostname);
+    //console.log(window.location.hostname);
     $("#nombre").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -9,7 +9,7 @@ $(document).ready(function () {
                 },
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
                     var resp = $.map(data, function (obj) {
                         return obj.nombre;
                     });

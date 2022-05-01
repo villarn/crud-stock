@@ -26,7 +26,8 @@ class Libro extends Model
     static $rules = [
 		'categoria_id' => 'required',
 		'nombre' => 'required',
-    'stock' => 'required'
+    'stock' => 'required',
+    
     ];
 
     protected $perPage = 20;

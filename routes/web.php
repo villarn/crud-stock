@@ -21,3 +21,4 @@ Route::get('autocomplete', [App\Http\Controllers\AutoCompleteController::class, 
 
 Route::get('/movement/{idProduct}',[App\Http\Controllers\MovementController::class, 'create'])->name('nuevoMovimiento');
 Route::post('/movement/{idProduct}',[App\Http\Controllers\MovementController::class, 'store'])->name('storeMovimiento');
+

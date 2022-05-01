@@ -11,6 +11,8 @@ Nuevo movimiento de stock
                 <div class="card-header">
                     <span class="card-title">Nuevo movimiento de stock</span>
                 </div>
+                <div>                   
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('storeMovimiento', ['idProduct' => $id]) }}"  role="form" enctype="multipart/form-data">
                         @csrf
@@ -19,6 +21,6 @@ Nuevo movimiento de stock
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 </section>
 @endsection
